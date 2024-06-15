@@ -21,15 +21,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           install: true
 
-      - name: Docker login
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-
       - name: Build all images
         run: |
           make -f Makefile.multi docker-all
           make base-pull
-          make android-push
