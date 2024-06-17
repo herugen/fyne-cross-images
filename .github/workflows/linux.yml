@@ -1,4 +1,4 @@
-name: publish-fyne-cross-images
+name: fyne-cross-images-linux
 
 on: workflow_dispatch
 env:
