@@ -55,7 +55,7 @@ RUN set -eux; \
         libxkbcommon-dev:i386 \
     ; \
     # support yubikey
-    #apt-get install -y -q libpcsclite-dev; \
+    apt-get install -y -q libpcsclite-dev; \
     # remove static libX11 to allow zig build against shared X11 lib
     rm -rf /usr/lib/*/libX11.a; \
     apt-get -qy autoremove; \
