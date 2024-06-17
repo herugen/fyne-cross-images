@@ -39,7 +39,7 @@ pub fn build(b: *std.Build) void {
     xar.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
     xar.defineCMacro("_GNU_SOURCE", "1");
 
-    xar.addLibraryPath("/usr/lib/x86_64-linux-gnu");
+    xar.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
     xar.linkSystemLibrary("lzma");
     xar.linkSystemLibrary("bz2");
     xar.linkSystemLibrary("z");
@@ -67,8 +67,8 @@ pub fn build(b: *std.Build) void {
     xarexe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
     xarexe.defineCMacro("_GNU_SOURCE", "1");
 
-    xarexe.addLibraryPath("zig-out/lib");
-    xarexe.addLibraryPath("/usr/lib/x86_64-linux-gnu");
+    xarexe.addLibraryPath(b.path("zig-out/lib"));
+    xarexe.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
     xarexe.linkSystemLibrary("xml2");
     xarexe.linkSystemLibrary("z");
     xarexe.linkSystemLibrary("crypto");
@@ -90,8 +90,8 @@ pub fn build(b: *std.Build) void {
     exe.addIncludePath(b.path("/usr/include"));
     exe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
 
-    exe.addLibraryPath("/usr/lib/x86_64-linux-gnu");
-    exe.addLibraryPath("zig-out/lib");
+    exe.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
+    exe.addLibraryPath(b.path("zig-out/lib"));
     exe.linkSystemLibrary("xml2");
     exe.linkSystemLibrary("z");
     exe.linkSystemLibrary("crypto");
