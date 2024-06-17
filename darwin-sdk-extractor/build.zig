@@ -85,7 +85,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    exe.addCSourceFile(.{ .file = .{ .path = "pbzx/pbzx.c" }, &[_][]const u8{})};
+    exe.addCSourceFile(.{ .file = .{ .path = "pbzx/pbzx.c" }, .flags = &[_][]const u8{}});
     exe.addIncludePath("zig-out/include");
     exe.addIncludePath("/usr/include");
     exe.addIncludePath("/usr/include/x86_64-linux-gnu");
