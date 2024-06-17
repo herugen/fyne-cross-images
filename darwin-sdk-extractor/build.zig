@@ -32,7 +32,7 @@ pub fn build(b: *std.Build) void {
         "xar/xar/lib/subdoc.c",
         "xar/xar/lib/util.c",
         "xar/xar/lib/zxar.c",
-    }, &[_][]const u8{});
+    });
     xar.addIncludePath("xar/xar/include");
     xar.addIncludePath("/usr/include");
     xar.addIncludePath("/usr/include/libxml2");
