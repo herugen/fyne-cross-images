@@ -34,12 +34,12 @@ pub fn build(b: *std.Build) void {
         "xar/xar/lib/zxar.c",
     }, .flags = &[_][]const u8{}});
     xar.addIncludePath(b.path("xar/xar/include"));
-    xar.addIncludePath(b.path("/usr/include"));
-    xar.addIncludePath(b.path("/usr/include/libxml2"));
-    xar.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
+    xar.addIncludePath(.{ .cwd_relative = "/usr/include"});
+    xar.addIncludePath(.{ .cwd_relative = "/usr/include/libxml2"});
+    xar.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
     xar.defineCMacro("_GNU_SOURCE", "1");
 
-    xar.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
+    xar.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
     xar.linkSystemLibrary("lzma");
     xar.linkSystemLibrary("bz2");
     xar.linkSystemLibrary("z");
@@ -62,13 +62,13 @@ pub fn build(b: *std.Build) void {
     });
     xarexe.addCSourceFile(.{ .file = b.path("xar/xar/src/xar.c"), .flags = &[_][]const u8{}});
     xarexe.addIncludePath(b.path("xar/xar/include"));
-    xarexe.addIncludePath(b.path("/usr/include"));
-    xarexe.addIncludePath(b.path("/usr/include/libxml2"));
-    xarexe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
+    xarexe.addIncludePath(.{ .cwd_relative = "/usr/include"});
+    xarexe.addIncludePath(.{ .cwd_relative = "/usr/include/libxml2"});
+    xarexe.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
     xarexe.defineCMacro("_GNU_SOURCE", "1");
 
     xarexe.addLibraryPath(b.path("zig-out/lib"));
-    xarexe.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
+    xarexe.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
     xarexe.linkSystemLibrary("xml2");
     xarexe.linkSystemLibrary("z");
     xarexe.linkSystemLibrary("crypto");
@@ -87,10 +87,10 @@ pub fn build(b: *std.Build) void {
     });
     exe.addCSourceFile(.{ .file = b.path("pbzx/pbzx.c"), .flags = &[_][]const u8{}});
     exe.addIncludePath(b.path("zig-out/include"));
-    exe.addIncludePath(b.path("/usr/include"));
-    exe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
+    exe.addIncludePath(.{ .cwd_relative = "/usr/include"});
+    exe.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
 
-    exe.addLibraryPath(b.path("/usr/lib/x86_64-linux-gnu"));
+    exe.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
     exe.addLibraryPath(b.path("zig-out/lib"));
     exe.linkSystemLibrary("xml2");
     exe.linkSystemLibrary("z");
