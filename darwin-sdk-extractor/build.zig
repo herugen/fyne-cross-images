@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    xar.addCSourceFiles(.{ .file = .{
+    xar.addCSourceFiles(.{ .files = .{
         "xar/xar/lib/archive.c",
         "xar/xar/lib/arcmod.c",
         "xar/xar/lib/b64.c",
@@ -60,7 +60,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    xarexe.addCSourceFile(.{ .file = .{ .path = "xar/xar/src/xar.c" }, .flags = &[_][]const u8{}});
+    xarexe.addCSourceFile(.{ .files = .{ .path = "xar/xar/src/xar.c" }, .flags = &[_][]const u8{}});
     xarexe.addIncludePath("xar/xar/include");
     xarexe.addIncludePath("/usr/include");
     xarexe.addIncludePath("/usr/include/libxml2");
@@ -85,7 +85,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    exe.addCSourceFile(.{ .file = .{ .path = "pbzx/pbzx.c" }, .flags = &[_][]const u8{}});
+    exe.addCSourceFile(.{ .files = .{ .path = "pbzx/pbzx.c" }, .flags = &[_][]const u8{}});
     exe.addIncludePath("zig-out/include");
     exe.addIncludePath("/usr/include");
     exe.addIncludePath("/usr/include/x86_64-linux-gnu");
