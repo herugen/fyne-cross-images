@@ -36,10 +36,10 @@ pub fn build(b: *std.Build) void {
     xar.addIncludePath(b.path("xar/xar/include"));
     xar.addIncludePath(.{ .cwd_relative = "/usr/include"});
     xar.addIncludePath(.{ .cwd_relative = "/usr/include/libxml2"});
-    xar.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
+    xar.addIncludePath(.{ .cwd_relative = "/usr/include/PLATFORM-linux-gnu"});
     xar.defineCMacro("_GNU_SOURCE", "1");
 
-    xar.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
+    xar.addLibraryPath(.{ .cwd_relative = "/usr/lib/PLATFORM-linux-gnu"});
     xar.linkSystemLibrary("lzma");
     xar.linkSystemLibrary("bz2");
     xar.linkSystemLibrary("z");
@@ -64,11 +64,11 @@ pub fn build(b: *std.Build) void {
     xarexe.addIncludePath(b.path("xar/xar/include"));
     xarexe.addIncludePath(.{ .cwd_relative = "/usr/include"});
     xarexe.addIncludePath(.{ .cwd_relative = "/usr/include/libxml2"});
-    xarexe.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
+    xarexe.addIncludePath(.{ .cwd_relative = "/usr/include/PLATFORM-linux-gnu"});
     xarexe.defineCMacro("_GNU_SOURCE", "1");
 
     xarexe.addLibraryPath(b.path("zig-out/lib"));
-    xarexe.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
+    xarexe.addLibraryPath(.{ .cwd_relative = "/usr/lib/PLATFORM-linux-gnu"});
     xarexe.linkSystemLibrary("xml2");
     xarexe.linkSystemLibrary("z");
     xarexe.linkSystemLibrary("crypto");
@@ -88,9 +88,9 @@ pub fn build(b: *std.Build) void {
     exe.addCSourceFile(.{ .file = b.path("pbzx/pbzx.c"), .flags = &[_][]const u8{}});
     exe.addIncludePath(b.path("zig-out/include"));
     exe.addIncludePath(.{ .cwd_relative = "/usr/include"});
-    exe.addIncludePath(.{ .cwd_relative = "/usr/include/x86_64-linux-gnu"});
+    exe.addIncludePath(.{ .cwd_relative = "/usr/include/PLATFORM-linux-gnu"});
 
-    exe.addLibraryPath(.{ .cwd_relative = "/usr/lib/x86_64-linux-gnu"});
+    exe.addLibraryPath(.{ .cwd_relative = "/usr/lib/PLATFORM-linux-gnu"});
     exe.addLibraryPath(b.path("zig-out/lib"));
     exe.linkSystemLibrary("xml2");
     exe.linkSystemLibrary("z");

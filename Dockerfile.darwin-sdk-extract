@@ -18,6 +18,18 @@ RUN set -eux; \
 
 
 COPY ./darwin-sdk-extractor/build.zig /tmp
+RUN set -eux; \
+    arch="$(dpkg --print-architecture)"; \
+    case "$arch" in \
+        'amd64') \
+            sed -i 's/PLATFORM/x86_64/g' /tmp/build.zig \
+            ;; \
+        'arm64') \
+            sed -i 's/PLATFORM/aarch64/g' /tmp/build.zig \     
+            ;; \
+        *) echo >&2 "error: unsupported architecture '$arch'"; exit 1 ;; \
+    esac;
+
 RUN set -eux; \ 
     mkdir /build; \
     cd /build; \
