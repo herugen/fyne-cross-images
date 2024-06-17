@@ -60,7 +60,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    xarexe.addCSourceFile(.{ .file = &.{ "xar/xar/src/xar.c" }, .flags = &[_][]const u8{}});
+    xarexe.addCSourceFile(.{ .file = b.path("xar/xar/src/xar.c"), .flags = &[_][]const u8{}});
     xarexe.addIncludePath(b.path("xar/xar/include"));
     xarexe.addIncludePath(b.path("/usr/include"));
     xarexe.addIncludePath(b.path("/usr/include/libxml2"));
@@ -85,7 +85,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    exe.addCSourceFile(.{ .file = &.{ "pbzx/pbzx.c" }, .flags = &[_][]const u8{}});
+    exe.addCSourceFile(.{ .file = b.path("pbzx/pbzx.c"), .flags = &[_][]const u8{}});
     exe.addIncludePath(b.path("zig-out/include"));
     exe.addIncludePath(b.path("/usr/include"));
     exe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
