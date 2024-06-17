@@ -33,10 +33,10 @@ pub fn build(b: *std.Build) void {
         "xar/xar/lib/util.c",
         "xar/xar/lib/zxar.c",
     }, .flags = &[_][]const u8{}});
-    xar.addIncludePath("xar/xar/include");
-    xar.addIncludePath("/usr/include");
-    xar.addIncludePath("/usr/include/libxml2");
-    xar.addIncludePath("/usr/include/x86_64-linux-gnu");
+    xar.addIncludePath(b.path("xar/xar/include"));
+    xar.addIncludePath(b.path("/usr/include"));
+    xar.addIncludePath(b.path("/usr/include/libxml2"));
+    xar.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
     xar.defineCMacro("_GNU_SOURCE", "1");
 
     xar.addLibraryPath("/usr/lib/x86_64-linux-gnu");
@@ -61,10 +61,10 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     xarexe.addCSourceFile(.{ .files = &.{ "xar/xar/src/xar.c" }, .flags = &[_][]const u8{}});
-    xarexe.addIncludePath("xar/xar/include");
-    xarexe.addIncludePath("/usr/include");
-    xarexe.addIncludePath("/usr/include/libxml2");
-    xarexe.addIncludePath("/usr/include/x86_64-linux-gnu");
+    xarexe.addIncludePath(b.path("xar/xar/include"));
+    xarexe.addIncludePath(b.path("/usr/include"));
+    xarexe.addIncludePath(b.path("/usr/include/libxml2"));
+    xarexe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
     xarexe.defineCMacro("_GNU_SOURCE", "1");
 
     xarexe.addLibraryPath("zig-out/lib");
@@ -86,9 +86,9 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     exe.addCSourceFile(.{ .files = &.{ "pbzx/pbzx.c" }, .flags = &[_][]const u8{}});
-    exe.addIncludePath("zig-out/include");
-    exe.addIncludePath("/usr/include");
-    exe.addIncludePath("/usr/include/x86_64-linux-gnu");
+    exe.addIncludePath(b.path("zig-out/include"));
+    exe.addIncludePath(b.path("/usr/include"));
+    exe.addIncludePath(b.path("/usr/include/x86_64-linux-gnu"));
 
     exe.addLibraryPath("/usr/lib/x86_64-linux-gnu");
     exe.addLibraryPath("zig-out/lib");
