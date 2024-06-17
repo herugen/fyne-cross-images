@@ -48,8 +48,8 @@ pub fn build(b: *std.Build) void {
     xar.linkLibC();
     b.installArtifact(xar);
 
-    b.installDirectory(std.Build.InstallDirectoryOptions{
-        .source_dir = "xar/xar/include",
+    b.installDirectory(.{
+        .source_dir = b.path("xar/xar/include"),
         .install_dir = .header,
         .install_subdir = "xar",
     });
