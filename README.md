@@ -48,3 +48,10 @@ create your image. For example: `touch .docker-base .docker-darwin` if you are u
 ### Contributors
 
 See [contributors](https://github.com/fyne-io/fyne-cross-images/graphs/contributors) page
+
+
+
+## Fix multiplie platform docker build 
+
+https://unix.stackexchange.com/questions/748633/error-multiple-platforms-feature-is-currently-not-supported-for-docker-driver
+
