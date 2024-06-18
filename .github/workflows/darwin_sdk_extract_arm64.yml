@@ -1,4 +1,4 @@
-name: fyne-cross-images-darwin-sdk-extractor
+name: fyne-cross-images-arm64-darwin-sdk-extractor
 
 on: workflow_dispatch
 env:
