@@ -9,7 +9,7 @@ This project provides the docker images required by fyne-cross to cross compile.
 
 ## Requirements
 
-- docker / podman
+- docker
 
 ## Supported targets
 
@@ -39,17 +39,17 @@ the Makefile to build that new container. If you do not need to rebuild the `bas
 upstream version, you can do so by creating the appropriate `.`file that match the Makefile and the builder you are using to
 create your image. For example: `touch .docker-base .docker-darwin` if you are using docker with the multi architecture Makefile.
 
-## Contribute
+## Fix illegal feature 
 
-- Fork and clone the repository
-- Make and test your changes
-- Open a pull request against the `develop` branch
+When build darwin sdk extract in GitHub action. Errors happened due to CPU not fit Zig requirement.
 
-### Contributors
+```
+#20 256.2 Illegal instruction at address 0x1150f40
+#20 256.3 /usr/local/zig/lib/std/zig/system/linux.zig:378:5: 0x1150f40 in detectNativeCpuAndFeatures (build)
+#20 256.3     return asm ("mrs %[ret], " ++ feat_reg
+```
 
-See [contributors](https://github.com/fyne-io/fyne-cross-images/graphs/contributors) page
-
-
+We need to use our own server to run as a runner.
 
 ## Fix multiplie platform docker build 
 
