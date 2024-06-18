@@ -48,13 +48,13 @@ jobs:
         with:
           context: .
           file: ./Dockerfile.darwin-sdk-extract
-          platforms: linux/amd64
+          platforms: linux/arm64
           build-args: |
             FYNE_CROSS_REPOSITORY=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-base
             FYNE_CROSS_IMAGES_VERSION=latest
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-darwin-sdk-extract-amd64:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-darwin-sdk-extract-arm64:latest
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
