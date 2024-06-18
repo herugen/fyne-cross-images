@@ -49,7 +49,7 @@ When build darwin sdk extract in GitHub action. Errors happened due to CPU not f
 #20 256.3     return asm ("mrs %[ret], " ++ feat_reg
 ```
 
-We need to use our own server to run as a runner.
+We need to use our own server to run as a runner, and build arm64 with a native arm64 server.
 
 ## Fix multiplie platform docker build 
 
